@@ -2,7 +2,7 @@
 //  FT20LoreCounterApp.swift
 //  FT20LoreCounter
 //
-//  Created by Richard Dillard on 3/20/26.
+//  Created by Richard Dillard on 3/25/26.
 //
 
 import SwiftUI
