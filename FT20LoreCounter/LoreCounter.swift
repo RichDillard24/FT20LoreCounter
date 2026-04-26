@@ -102,10 +102,21 @@ struct ContentView: View {
                 
                 // Reset Button
                 Button(action: {
-                    withAnimation {
-                        player1Lore = 0
-                        player2Lore = 0
-                        
+                    if player1Wins < 2 && player2Wins < 2 {
+                        // reset lores
+                        withAnimation {
+                            player1Lore = 0
+                            player2Lore = 0
+                        }
+                    }
+                    else {
+                        // reset everything
+                        withAnimation {
+                            player1Lore = 0
+                            player2Lore = 0
+                            player1Wins = 0
+                            player2Wins = 0
+                        }
                     }
                 }) {
                     Text(" New Chapter! ")
@@ -115,9 +126,12 @@ struct ContentView: View {
                         .border(Color.yellow, width:4)
                         .cornerRadius(10)
                         .rotationEffect(Angle(degrees: 90))
+                        .shadow(color: player1Lore >= 20 ? .yellow.opacity(0.7) : .clear, radius: 10)
+                        .shadow(color: player2Lore >= 20 ? .yellow.opacity(0.7) : .clear, radius: 10)
+                        .shadow(color: player1Wins >= 2 ? .yellow.opacity(0.7) : .clear, radius: 10)
+                        .shadow(color: player2Wins >= 2 ? .yellow.opacity(0.7) : .clear, radius: 10)
                         .padding(.trailing, 275)
                 }
-                
                 Spacer()
                 
                 //  (Player 1)
